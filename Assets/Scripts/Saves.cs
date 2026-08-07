@@ -1,6 +1,7 @@
+using Terresquall;
 using UnityEngine;
 
-public class Saves : MonoBehaviour
+public class Saves : PersistentObject
 {
     [SerializeField] private int levelIndex;
     [SerializeField] private GameObject zeroStar;
@@ -8,19 +9,22 @@ public class Saves : MonoBehaviour
     [SerializeField] private GameObject twoStars;
     [SerializeField] private GameObject threeStars;
 
+    public int stars = 0;
+
     private void Awake()
     {
-        if(PlayerPrefs.HasKey(levelIndex.ToString()))
+        PersistentObject.SaveData starInfo = Bench.Find(saveID);
+        if(starInfo != null)
         {
-            if(PlayerPrefs.GetInt(levelIndex.ToString()) == 1)
+            if(starInfo.stars == 1)
             {
                 oneStar.SetActive(true);
             }
-            else if(PlayerPrefs.GetInt(levelIndex.ToString()) == 2)
+            else if(starInfo.stars == 2)
             {
                 twoStars.SetActive(true);
             }
-            else if (PlayerPrefs.GetInt(levelIndex.ToString()) == 3)
+            else if (starInfo.stars == 3)
             {
                 threeStars.SetActive(true);
             }
@@ -33,5 +37,15 @@ public class Saves : MonoBehaviour
         {
             zeroStar.SetActive(true);
         }
+    }
+
+    public override SaveData Save()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override bool Load(SaveData data)
+    {
+        throw new System.NotImplementedException();
     }
 }

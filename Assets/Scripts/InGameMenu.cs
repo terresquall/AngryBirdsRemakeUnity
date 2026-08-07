@@ -23,6 +23,8 @@ public class InGameMenu : MonoBehaviour
     [SerializeField] private GameObject[] stars;
     [SerializeField] private GameObject[] emptyStars;
 
+    [SerializeField] private string saveID;
+
     [SerializeField] private AudioClip[] lostSounds;
     [SerializeField] private AudioClip[] winSounds;
     [SerializeField] private AudioClip scoreCountLoop;
@@ -53,6 +55,8 @@ public class InGameMenu : MonoBehaviour
     private void Awake()
     {
         Birds = new List<GameObject>(GameObject.FindGameObjectsWithTag("Bird"));
+
+        saveID = SceneManager.GetActiveScene().name;
     }
 
     private void FixedUpdate()
@@ -79,37 +83,47 @@ public class InGameMenu : MonoBehaviour
         score.maxScoreUpdate((Mathf.RoundToInt(Birds.Count * 0.75f)) * 10000);
         score.scoreUpdate((new List<GameObject>(GameObject.FindGameObjectsWithTag("Bird")).Count) * 10000);
 
+        PersistentObject.SaveData starInfo = Bench.Find(saveID);
+        PersistentObject.SaveData newStarInfo = new PersistentObject.SaveData();
+
         if (((float)score.score / (float)score.maxScore) * 100f >= 80f) // 3 starts
         {
-
             StartCoroutine(starDelay(3));
+            newStarInfo.stars = 3;
 
-            if (PlayerPrefs.GetInt(SceneManager.GetActiveScene().buildIndex.ToString()) < 3)
+            if (starInfo != null && starInfo.stars < 3)
             {
-                PlayerPrefs.SetInt(SceneManager.GetActiveScene().buildIndex.ToString(), 3);
+                Bench.Write(saveID, newStarInfo);
             }
-
+            else if (starInfo == null)
+            {
+                Bench.Write(saveID, newStarInfo);
+            }
         }
         else if(((float)score.score / (float)score.maxScore) * 100f >= 50f) // 2 stars
         {
             StartCoroutine(starDelay(2));
+            newStarInfo.stars = 2;
 
-            if (PlayerPrefs.GetInt(SceneManager.GetActiveScene().buildIndex.ToString()) < 2)
+            if (starInfo != null && starInfo.stars < 2)
             {
-                PlayerPrefs.SetInt(SceneManager.GetActiveScene().buildIndex.ToString(), 2);
+                Bench.Write(saveID, newStarInfo);
+            }
+            else if (starInfo == null)
+            {
+                Bench.Write(saveID, newStarInfo);
             }
         }
         else // 1 star
         {
             StartCoroutine(starDelay(1));
 
-            if (PlayerPrefs.GetInt(SceneManager.GetActiveScene().buildIndex.ToString()) < 1)
-            {
-                PlayerPrefs.SetInt(SceneManager.GetActiveScene().buildIndex.ToString(), 1);
-            }
+            newStarInfo.stars = 1;
+            Bench.Write(saveID, newStarInfo);
         }
-        PlayerPrefs.Save();
-        StartCoroutine(CountUpToTarget(scoreText, score.score, PlayerPrefs.GetInt(SceneManager.GetActiveScene().buildIndex.ToString())));
+
+        starInfo = Bench.Find(saveID);
+        StartCoroutine(CountUpToTarget(scoreText, score.score, starInfo.stars));
 
     }
 
