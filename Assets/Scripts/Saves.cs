@@ -9,11 +9,11 @@ public class Saves : PersistentObject
     [SerializeField] private GameObject twoStars;
     [SerializeField] private GameObject threeStars;
 
-    public int stars = 0;
+    public SaveData data;
 
     private void Awake()
     {
-        PersistentObject.SaveData starInfo = Bench.Find(saveID);
+        SaveData starInfo = Bench.Find(saveID) as SaveData;
         if(starInfo != null)
         {
             if(starInfo.stars == 1)
@@ -39,13 +39,20 @@ public class Saves : PersistentObject
         }
     }
 
-    public override SaveData Save()
+    [System.Serializable]
+    public new class SaveData : PersistentObject.SaveData
     {
-        throw new System.NotImplementedException();
+        public int stars = 0;
     }
 
-    public override bool Load(SaveData data)
+    public override PersistentObject.SaveData Save()
     {
-        throw new System.NotImplementedException();
+        return data;
+    }
+
+    public override bool Load(PersistentObject.SaveData data)
+    {
+        this.data = data as SaveData;
+        return this.data != null;
     }
 }

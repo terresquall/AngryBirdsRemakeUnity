@@ -83,10 +83,10 @@ public class InGameMenu : MonoBehaviour
         score.maxScoreUpdate((Mathf.RoundToInt(Birds.Count * 0.75f)) * 10000);
         score.scoreUpdate((new List<GameObject>(GameObject.FindGameObjectsWithTag("Bird")).Count) * 10000);
 
-        PersistentObject.SaveData starInfo = Bench.Find(saveID);
-        PersistentObject.SaveData newStarInfo = new PersistentObject.SaveData();
+        Saves.SaveData starInfo = Bench.Find(saveID) as Saves.SaveData;
+        Saves.SaveData newStarInfo = new Saves.SaveData();
 
-        if (((float)score.score / (float)score.maxScore) * 100f >= 80f) // 3 starts
+        if (score.score / score.maxScore * 100f >= 80f) // 3 starts
         {
             StartCoroutine(starDelay(3));
             newStarInfo.stars = 3;
@@ -100,7 +100,7 @@ public class InGameMenu : MonoBehaviour
                 Bench.Write(saveID, newStarInfo);
             }
         }
-        else if(((float)score.score / (float)score.maxScore) * 100f >= 50f) // 2 stars
+        else if(score.score / score.maxScore * 100f >= 50f) // 2 stars
         {
             StartCoroutine(starDelay(2));
             newStarInfo.stars = 2;
@@ -122,7 +122,8 @@ public class InGameMenu : MonoBehaviour
             Bench.Write(saveID, newStarInfo);
         }
 
-        starInfo = Bench.Find(saveID);
+        Bench.SaveGameAsync();
+        starInfo = Bench.Find(saveID) as Saves.SaveData;
         StartCoroutine(CountUpToTarget(scoreText, score.score, starInfo.stars));
 
     }

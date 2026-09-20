@@ -37,7 +37,6 @@ namespace Terresquall {
         [Serializable]
         public class SaveData {
             public string saveID;
-            public int stars;
 
             // Printing out all fields of the SaveData object for debugging purposes.
             public override string ToString() {
