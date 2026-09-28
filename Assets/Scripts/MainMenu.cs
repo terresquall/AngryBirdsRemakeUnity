@@ -50,7 +50,11 @@ public class MainMenu : MonoBehaviour
     private void levelButton(int Scene)
     {
         menuSound(1);
-        SceneManager.LoadScene(Scene);
+        int unlockNumber = LevelSave.Instance.levelComplete + 1;
+        if (unlockNumber >= Scene)
+        {
+            SceneManager.LoadScene(Scene);
+        }
     }
 
     private void menuSound(int number)

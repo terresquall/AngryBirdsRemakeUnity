@@ -214,6 +214,18 @@ public class InGameMenu : MonoBehaviour
         yield return new WaitForSeconds(winSounds[clipIndex].length);
         if (GameManager.CurrentGameState == GameState.Won && onWinScreen == false && GameManager.BricksBirdsPigsStoppedMoving() && new List<GameObject>(GameObject.FindGameObjectsWithTag("Bird")).Count == GameManager.birdsNumber)
         {
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            string numbersOnly = Regex.Replace(currentSceneName, @"[^\d]", "");
+            if (int.TryParse(numbersOnly, out int levelNum))
+            {
+                if (levelNum > LevelSave.Instance.levelComplete)
+                {
+                    LevelSave.Instance.levelComplete = levelNum;
+                }
+            }
+
+            Bench.SaveGame();
+
             onWinScreen = true;
 
             defaultState.SetActive(false);

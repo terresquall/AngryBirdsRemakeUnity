@@ -1,30 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\galac\\Downloads\\AngryBirdsRemakeUnity\\",
+  "WorkspaceRootPath": "C:\\Users\\Chelsea\\Desktop\\sp work\\internship\\AngryBirdsRemakeUnity\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4489AFD1-75DC-4A69-9615-DCAF28457E38}|Assembly-CSharp.csproj|c:\\users\\galac\\downloads\\angrybirdsremakeunity\\assets\\scripts\\saves.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4489AFD1-75DC-4A69-9615-DCAF28457E38}|Assembly-CSharp.csproj|C:\\Users\\Chelsea\\Desktop\\sp work\\internship\\AngryBirdsRemakeUnity\\assets\\scripts\\saves.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4489AFD1-75DC-4A69-9615-DCAF28457E38}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\saves.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4489AFD1-75DC-4A69-9615-DCAF28457E38}|Assembly-CSharp.csproj|c:\\users\\galac\\downloads\\angrybirdsremakeunity\\assets\\bench universal save system\\scripts\\bench.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4489AFD1-75DC-4A69-9615-DCAF28457E38}|Assembly-CSharp.csproj|c:\\users\\chelsea\\desktop\\sp work\\internship\\angrybirdsremakeunity\\assets\\bench universal save system\\scripts\\bench.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4489AFD1-75DC-4A69-9615-DCAF28457E38}|Assembly-CSharp.csproj|solutionrelative:assets\\bench universal save system\\scripts\\bench.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4489AFD1-75DC-4A69-9615-DCAF28457E38}|Assembly-CSharp.csproj|c:\\users\\galac\\downloads\\angrybirdsremakeunity\\assets\\bench universal save system\\scripts\\persistentobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4489AFD1-75DC-4A69-9615-DCAF28457E38}|Assembly-CSharp.csproj|C:\\Users\\Chelsea\\Desktop\\sp work\\internship\\AngryBirdsRemakeUnity\\assets\\bench universal save system\\scripts\\persistentobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4489AFD1-75DC-4A69-9615-DCAF28457E38}|Assembly-CSharp.csproj|solutionrelative:assets\\bench universal save system\\scripts\\persistentobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4489AFD1-75DC-4A69-9615-DCAF28457E38}|Assembly-CSharp.csproj|C:\\Users\\galac\\Downloads\\AngryBirdsRemakeUnity\\assets\\scripts\\ingamemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4489AFD1-75DC-4A69-9615-DCAF28457E38}|Assembly-CSharp.csproj|C:\\Users\\Chelsea\\Desktop\\sp work\\internship\\AngryBirdsRemakeUnity\\assets\\scripts\\ingamemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4489AFD1-75DC-4A69-9615-DCAF28457E38}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ingamemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4489AFD1-75DC-4A69-9615-DCAF28457E38}|Assembly-CSharp.csproj|c:\\users\\galac\\downloads\\angrybirdsremakeunity\\assets\\bench universal save system\\scripts\\savepoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4489AFD1-75DC-4A69-9615-DCAF28457E38}|Assembly-CSharp.csproj|solutionrelative:assets\\bench universal save system\\scripts\\savepoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4489AFD1-75DC-4A69-9615-DCAF28457E38}|Assembly-CSharp.csproj|C:\\Users\\Chelsea\\Desktop\\sp work\\internship\\AngryBirdsRemakeUnity\\assets\\scripts\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4489AFD1-75DC-4A69-9615-DCAF28457E38}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4489AFD1-75DC-4A69-9615-DCAF28457E38}|Assembly-CSharp.csproj|C:\\Users\\galac\\Downloads\\AngryBirdsRemakeUnity\\assets\\scripts\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4489AFD1-75DC-4A69-9615-DCAF28457E38}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4489AFD1-75DC-4A69-9615-DCAF28457E38}|Assembly-CSharp.csproj|C:\\Users\\Chelsea\\Desktop\\sp work\\internship\\AngryBirdsRemakeUnity\\assets\\bench universal save system\\scripts\\savepoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4489AFD1-75DC-4A69-9615-DCAF28457E38}|Assembly-CSharp.csproj|solutionrelative:assets\\bench universal save system\\scripts\\savepoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -40,11 +40,11 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "PersistentObject.cs",
-              "DocumentMoniker": "C:\\Users\\galac\\Downloads\\AngryBirdsRemakeUnity\\Assets\\Bench Universal Save System\\Scripts\\PersistentObject.cs",
+              "DocumentMoniker": "C:\\Users\\Chelsea\\Desktop\\sp work\\internship\\AngryBirdsRemakeUnity\\Assets\\Bench Universal Save System\\Scripts\\PersistentObject.cs",
               "RelativeDocumentMoniker": "Assets\\Bench Universal Save System\\Scripts\\PersistentObject.cs",
-              "ToolTip": "C:\\Users\\galac\\Downloads\\AngryBirdsRemakeUnity\\Assets\\Bench Universal Save System\\Scripts\\PersistentObject.cs",
+              "ToolTip": "C:\\Users\\Chelsea\\Desktop\\sp work\\internship\\AngryBirdsRemakeUnity\\Assets\\Bench Universal Save System\\Scripts\\PersistentObject.cs",
               "RelativeToolTip": "Assets\\Bench Universal Save System\\Scripts\\PersistentObject.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwCUAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-07T10:56:15.121Z",
               "EditorCaption": ""
@@ -53,11 +53,11 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Bench.cs",
-              "DocumentMoniker": "C:\\Users\\galac\\Downloads\\AngryBirdsRemakeUnity\\Assets\\Bench Universal Save System\\Scripts\\Bench.cs",
+              "DocumentMoniker": "C:\\Users\\Chelsea\\Desktop\\sp work\\internship\\AngryBirdsRemakeUnity\\Assets\\Bench Universal Save System\\Scripts\\Bench.cs",
               "RelativeDocumentMoniker": "Assets\\Bench Universal Save System\\Scripts\\Bench.cs",
-              "ToolTip": "C:\\Users\\galac\\Downloads\\AngryBirdsRemakeUnity\\Assets\\Bench Universal Save System\\Scripts\\Bench.cs",
+              "ToolTip": "C:\\Users\\Chelsea\\Desktop\\sp work\\internship\\AngryBirdsRemakeUnity\\Assets\\Bench Universal Save System\\Scripts\\Bench.cs",
               "RelativeToolTip": "Assets\\Bench Universal Save System\\Scripts\\Bench.cs",
-              "ViewState": "AgIAAHMBAAAAAAAAAAAvwIYBAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAKQAAAAAAAAAAAAqwHMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-07T10:48:36.359Z",
               "EditorCaption": ""
@@ -66,65 +66,36 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Saves.cs",
-              "DocumentMoniker": "C:\\Users\\galac\\Downloads\\AngryBirdsRemakeUnity\\Assets\\Scripts\\Saves.cs",
+              "DocumentMoniker": "C:\\Users\\Chelsea\\Desktop\\sp work\\internship\\AngryBirdsRemakeUnity\\Assets\\Scripts\\Saves.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Saves.cs",
-              "ToolTip": "C:\\Users\\galac\\Downloads\\AngryBirdsRemakeUnity\\Assets\\Scripts\\Saves.cs",
+              "ToolTip": "C:\\Users\\Chelsea\\Desktop\\sp work\\internship\\AngryBirdsRemakeUnity\\Assets\\Scripts\\Saves.cs",
               "RelativeToolTip": "Assets\\Scripts\\Saves.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAQwDAAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwBMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-07T10:34:08.694Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:133:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:134:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SavePoint.cs",
+              "DocumentMoniker": "C:\\Users\\Chelsea\\Desktop\\sp work\\internship\\AngryBirdsRemakeUnity\\Assets\\Bench Universal Save System\\Scripts\\SavePoint.cs",
+              "RelativeDocumentMoniker": "Assets\\Bench Universal Save System\\Scripts\\SavePoint.cs",
+              "ToolTip": "C:\\Users\\Chelsea\\Desktop\\sp work\\internship\\AngryBirdsRemakeUnity\\Assets\\Bench Universal Save System\\Scripts\\SavePoint.cs",
+              "RelativeToolTip": "Assets\\Bench Universal Save System\\Scripts\\SavePoint.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-07T10:19:37.583Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "SavePoint.cs",
-              "DocumentMoniker": "C:\\Users\\galac\\Downloads\\AngryBirdsRemakeUnity\\Assets\\Bench Universal Save System\\Scripts\\SavePoint.cs",
-              "RelativeDocumentMoniker": "Assets\\Bench Universal Save System\\Scripts\\SavePoint.cs",
-              "ToolTip": "C:\\Users\\galac\\Downloads\\AngryBirdsRemakeUnity\\Assets\\Bench Universal Save System\\Scripts\\SavePoint.cs",
-              "RelativeToolTip": "Assets\\Bench Universal Save System\\Scripts\\SavePoint.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-07T10:19:37.583Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "MainMenu.cs",
-              "DocumentMoniker": "C:\\Users\\galac\\Downloads\\AngryBirdsRemakeUnity\\Assets\\Scripts\\MainMenu.cs",
+              "DocumentMoniker": "C:\\Users\\Chelsea\\Desktop\\sp work\\internship\\AngryBirdsRemakeUnity\\Assets\\Scripts\\MainMenu.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MainMenu.cs",
-              "ToolTip": "C:\\Users\\galac\\Downloads\\AngryBirdsRemakeUnity\\Assets\\Scripts\\MainMenu.cs",
+              "ToolTip": "C:\\Users\\Chelsea\\Desktop\\sp work\\internship\\AngryBirdsRemakeUnity\\Assets\\Scripts\\MainMenu.cs",
               "RelativeToolTip": "Assets\\Scripts\\MainMenu.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAgwDQAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-16T06:50:49.996Z",
               "EditorCaption": ""
@@ -133,11 +104,11 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "InGameMenu.cs",
-              "DocumentMoniker": "C:\\Users\\galac\\Downloads\\AngryBirdsRemakeUnity\\Assets\\Scripts\\InGameMenu.cs",
+              "DocumentMoniker": "C:\\Users\\Chelsea\\Desktop\\sp work\\internship\\AngryBirdsRemakeUnity\\Assets\\Scripts\\InGameMenu.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\InGameMenu.cs",
-              "ToolTip": "C:\\Users\\galac\\Downloads\\AngryBirdsRemakeUnity\\Assets\\Scripts\\InGameMenu.cs",
+              "ToolTip": "C:\\Users\\Chelsea\\Desktop\\sp work\\internship\\AngryBirdsRemakeUnity\\Assets\\Scripts\\InGameMenu.cs",
               "RelativeToolTip": "Assets\\Scripts\\InGameMenu.cs",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAkwEsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAQwE8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-16T06:15:38.238Z",
               "EditorCaption": ""
