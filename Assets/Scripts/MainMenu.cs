@@ -10,6 +10,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField]  private GameObject episodeMenu;
     [SerializeField]  private GameObject episode1;
 
+    private GameObject currentEpisode;
+
 
     private void Start()
     {
@@ -28,6 +30,7 @@ public class MainMenu : MonoBehaviour
     private void EpisodeButton(GameObject episode)
     {
         menuSound(1);
+        currentEpisode = episode;
         closeWindow(episodeMenu);
         openWindow(episode);
     }
@@ -36,15 +39,17 @@ public class MainMenu : MonoBehaviour
     {
         menuSound(0);
 
-        if (episodeMenu.active)
+        if (episodeMenu.activeSelf)
         {
             closeWindow(episodeMenu);
             openWindow(startMenu);
         }
-        else if(episode1.active)
+        else if(currentEpisode.activeSelf)
         {
-            closeWindow(episode1);
+            closeWindow(currentEpisode);
             openWindow(episodeMenu);
+
+            currentEpisode = null;
         }
     }
     private void levelButton(int Scene)
