@@ -1,27 +1,29 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Terresquall {
     public class SavePoint : MonoBehaviour {
 
         [Tooltip("When checked, saving the game does not pause gameplay.")]
         public bool asynchronous = true;
-        public enum DetectionMode { tagName, className }
+        public enum DetectionMode { tagName, componentName }
         public DetectionMode detectionMode = DetectionMode.tagName;
         public string detectionTarget = "Player";
 
-        protected List<Component> objectsInRange = new List<Component>();
+        protected readonly List<Component> objectsInRange = new List<Component>();
 
+        [Header("Controls")]
 #if ENABLE_INPUT_SYSTEM
-        public Key[] interactKeys = { Key.E };
+        public InputAction interactKeys = new InputAction("Interact", binding: "<Keyboard>/e", type: InputActionType.Button);
 #else
         public KeyCode[] interactKeys = { KeyCode.E };
 #endif
 
         [Header("Feedback")]
         [Tooltip("Color of the object when someone is in range.")]
-        public Color activeColor = new Color(.9f,.9f,.9f);
+        public Color activeColor = new Color(.8f, .8f, .8f);
         [Tooltip("List of all Renderers this feedback should affect.")]
         public Renderer[] feedbackTargets;
         protected readonly Dictionary<Renderer, Color> originalColors = new Dictionary<Renderer, Color>();
@@ -29,10 +31,13 @@ namespace Terresquall {
         // Delegates for other scripts to attach callbacks to.
         public event Action<Component> OnRangeEntry, OnRangeExit;
 
+        // 1-frame override triggered by Interact().
+        protected bool interactedInThisFrame = false;
+
         protected virtual void Start() {
             // Get all renderers attached to this save point.
-            foreach(Renderer r in feedbackTargets) {
-                if(r is SpriteRenderer sr) originalColors.Add(r, sr.color);
+            foreach (Renderer r in feedbackTargets) {
+                if (r is SpriteRenderer sr) originalColors.Add(r, sr.color);
                 else originalColors.Add(r, r.sharedMaterial.color);
             }
 
@@ -51,32 +56,36 @@ namespace Terresquall {
             feedbackTargets = GetComponentsInChildren<Renderer>();
         }
 
-        public virtual bool AreKeysPressed() {
+        public virtual void Interact() { interactedInThisFrame = true; }
+        // Cancels an interaction triggered by OnInteract().
+        public virtual void CancelInteract() { interactedInThisFrame= false; }
+
+        public virtual bool CheckInteractKeyPress() {
 #if ENABLE_INPUT_SYSTEM
-            foreach(Key k in interactKeys) {
-                if (Keyboard.current[k].IsPressed()) return true;
-            }
+            return interactKeys.WasPressedThisFrame();
 #else
             foreach (KeyCode k in interactKeys) {
-                if (Input.GetKeyDown(k)) return true;
+                if (Input.GetKeyDown(k)) 
+                    return true;
             }
-#endif
             return false;
+#endif
         }
 
         protected virtual void Update() {
-            if (objectsInRange.Count > 0 && AreKeysPressed()) {
+            if (objectsInRange.Count > 0 && (CheckInteractKeyPress() || interactedInThisFrame)) {
                 if (asynchronous) Bench.SaveGameAsync();
                 else Bench.SaveGame();
             }
+            interactedInThisFrame = false;
         }
 
         // Checks if a component is a valid target, according to the settings in the component.
         public bool IsValidTarget(Component other) {
-            switch(detectionMode) {
+            switch (detectionMode) {
                 case DetectionMode.tagName:
                     return other.CompareTag(detectionTarget);
-                case DetectionMode.className:
+                case DetectionMode.componentName:
                     Type type = Type.GetType(detectionTarget);
                     if (type != null) {
                         return other.GetComponent(type) != null;
@@ -88,34 +97,39 @@ namespace Terresquall {
             return false;
         }
 
-        protected virtual void HandleRangeEntry(Component other) {
+        protected virtual bool HandleRangeEntry(Component other) {
             if (IsValidTarget(other)) {
                 if (!objectsInRange.Contains(other)) {
                     objectsInRange.Add(other);
-                    foreach(Renderer r in feedbackTargets) {
-                        if(r is SpriteRenderer sr) sr.color = activeColor;
+                    foreach (Renderer r in feedbackTargets) {
+                        if (r is SpriteRenderer sr) sr.color = activeColor;
                         else r.material.color = activeColor;
                     }
 
                     // Fire any attached callback events.
                     OnRangeEntry?.Invoke(other);
-                }
+                    return true;
+                }                
             }
+            return false;
         }
 
-        protected virtual void HandleRangeExit(Component other) {
+        protected virtual bool HandleRangeExit(Component other) {
             if (IsValidTarget(other)) {
                 if (objectsInRange.Contains(other)) {
                     objectsInRange.Remove(other);
-                    foreach(Renderer r in feedbackTargets) {
-                        if(r is SpriteRenderer sr) sr.color = originalColors[r];
+                    foreach (Renderer r in feedbackTargets) {
+                        if (r is SpriteRenderer sr) sr.color = originalColors[r];
                         else r.material.color = originalColors[r];
                     }
 
                     // Fire any attached callback events.
                     OnRangeExit?.Invoke(other);
+
+                    return true;
                 }
             }
+            return false;
         }
 
         protected virtual void OnTriggerEnter2D(Collider2D other) { HandleRangeEntry(other); }

@@ -45,10 +45,17 @@ public class InGameMenu : MonoBehaviour
 
     private void Start()
     {
-        if(PlayerPrefs.HasKey(SceneManager.GetActiveScene().buildIndex + "h"))
+        Saves.SaveData saveData = Bench.Find(saveID) as Saves.SaveData;
+
+        if (saveData != null )
         {
-            highscoreText.text = PlayerPrefs.GetInt(SceneManager.GetActiveScene().buildIndex + "h").ToString();
+            highscoreText.text = saveData.highScore.ToString();
         }
+        else
+        {
+            highscoreText.text = "0";
+        }
+
         score = GameObject.Find("number").GetComponent<Score>();
     }
 
@@ -86,13 +93,14 @@ public class InGameMenu : MonoBehaviour
         Saves.SaveData starInfo = Bench.Find(saveID) as Saves.SaveData;
         Saves.SaveData newStarInfo = new Saves.SaveData();
 
-        if (score.score / score.maxScore * 100f >= 80f) // 3 starts
+        if ((float)score.score / (float)score.maxScore * 100f >= 80f) // 3 starts
         {
             StartCoroutine(starDelay(3));
             newStarInfo.stars = 3;
 
             if (starInfo != null && starInfo.stars < 3)
             {
+                newStarInfo.highScore = starInfo.highScore;
                 Bench.Write(saveID, newStarInfo);
             }
             else if (starInfo == null)
@@ -100,13 +108,14 @@ public class InGameMenu : MonoBehaviour
                 Bench.Write(saveID, newStarInfo);
             }
         }
-        else if(score.score / score.maxScore * 100f >= 50f) // 2 stars
+        else if((float)score.score / (float)score.maxScore * 100f >= 50f) // 2 stars
         {
             StartCoroutine(starDelay(2));
             newStarInfo.stars = 2;
 
             if (starInfo != null && starInfo.stars < 2)
             {
+                newStarInfo.highScore = starInfo.highScore;
                 Bench.Write(saveID, newStarInfo);
             }
             else if (starInfo == null)
@@ -117,10 +126,30 @@ public class InGameMenu : MonoBehaviour
         else // 1 star
         {
             StartCoroutine(starDelay(1));
-
             newStarInfo.stars = 1;
-            Bench.Write(saveID, newStarInfo);
+
+            if (starInfo == null || starInfo.stars < 1)
+            {
+                if (starInfo != null)
+                {
+                    newStarInfo.highScore = starInfo.highScore;
+                }
+                Bench.Write(saveID, newStarInfo);
+            }
         }
+
+        starInfo = Bench.Find(saveID) as Saves.SaveData;
+
+        if (starInfo == null)
+        {
+            starInfo = new Saves.SaveData();
+        }
+
+        if (score.score > starInfo.highScore)
+        {
+            starInfo.highScore = score.score;
+            Bench.Write(saveID, starInfo);
+        }    
 
         Bench.SaveGameAsync();
         starInfo = Bench.Find(saveID) as Saves.SaveData;
@@ -130,23 +159,15 @@ public class InGameMenu : MonoBehaviour
 
     private void highScoreShow()
     {
-        if (PlayerPrefs.HasKey(SceneManager.GetActiveScene().buildIndex.ToString() + "h"))
+        Saves.SaveData saveData = Bench.Find(saveID) as Saves.SaveData;
+
+        if (saveData != null && score.score >= saveData.highScore)
         {
-            if (PlayerPrefs.GetInt("1h") < score.score)
-            {
-                PlayerPrefs.SetInt(SceneManager.GetActiveScene().buildIndex.ToString() + "h", score.score);
-                highScore.SetActive(true);
-                menuSound(3);
-            }
-        }
-        else
-        {
-            PlayerPrefs.SetInt(SceneManager.GetActiveScene().buildIndex.ToString() + "h", score.score);
             highScore.SetActive(true);
             menuSound(3);
         }
-        PlayerPrefs.Save();
     }
+
     private void changeState()
     {
         menuSound(1);
@@ -214,18 +235,6 @@ public class InGameMenu : MonoBehaviour
         yield return new WaitForSeconds(winSounds[clipIndex].length);
         if (GameManager.CurrentGameState == GameState.Won && onWinScreen == false && GameManager.BricksBirdsPigsStoppedMoving() && new List<GameObject>(GameObject.FindGameObjectsWithTag("Bird")).Count == GameManager.birdsNumber)
         {
-            string currentSceneName = SceneManager.GetActiveScene().name;
-            string numbersOnly = Regex.Replace(currentSceneName, @"[^\d]", "");
-            if (int.TryParse(numbersOnly, out int levelNum))
-            {
-                if (levelNum > LevelSave.Instance.levelComplete)
-                {
-                    LevelSave.Instance.levelComplete = levelNum;
-                }
-            }
-
-            Bench.SaveGame();
-
             onWinScreen = true;
 
             defaultState.SetActive(false);

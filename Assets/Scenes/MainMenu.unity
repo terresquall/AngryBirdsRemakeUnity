@@ -203,7 +203,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 22481299}
-  - component: {fileID: 22481298}
   m_Layer: 0
   m_Name: SaveManager
   m_TagString: Untagged
@@ -211,20 +210,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &22481298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22481297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0ffef77162728f4385ec93785771994, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevelSave
-  saveID: 83790662-d7a0-46d1-a71f-03e5aaba6f2b
-  levelComplete: 1
 --- !u!4 &22481299
 Transform:
   m_ObjectHideFlags: 0
@@ -1734,6 +1719,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveID: Level2
   levelIndex: 2
+  previousLevelSaveID: Level1
+  levelButton: {fileID: 539408318}
   zeroStar: {fileID: 1813382889}
   oneStar: {fileID: 1356556161}
   twoStars: {fileID: 1325191167}
@@ -2661,7 +2648,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -3815,6 +3802,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveID: Level1
   levelIndex: 1
+  previousLevelSaveID: 
+  levelButton: {fileID: 1004227665}
   zeroStar: {fileID: 1734069055}
   oneStar: {fileID: 932908247}
   twoStars: {fileID: 636339429}
@@ -4133,6 +4122,9 @@ MonoBehaviour:
   maxStarText: {fileID: 1240678107}
   totalStarText: {fileID: 672489167}
   totalScoreText: {fileID: 1900023887}
+  levelSaveID:
+  - Level1
+  - Level2
   levelsCount: 0
   totalStarCount: 0
   totalMaxStarCount: 0
@@ -4547,7 +4539,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -5522,7 +5514,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -6599,7 +6591,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -7692,7 +7684,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1

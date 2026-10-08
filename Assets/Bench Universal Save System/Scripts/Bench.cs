@@ -22,7 +22,7 @@ namespace Terresquall {
         static string savePath => $"{Application.persistentDataPath}/saves/";
 
         public const string VERSION = "0.3.0";
-        public const string LAST_UPDATED = "26 July 2026";
+        public const string LAST_UPDATED = "10 August 2026";
 
         [DataContract]
         public class SaveFile {
@@ -81,7 +81,9 @@ namespace Terresquall {
         public bool showDebugLogs = false;
 
         // Events.
+        public enum SaveType { sync, async }
         public static event System.Action<SaveFile> OnFormatSave;
+        public static event System.Action<SaveFile, SaveType> OnSaveBegin, OnSaveComplete;
 
         protected static bool isSaving = false;
         public static bool IsSaving() { return isSaving; }
@@ -281,6 +283,7 @@ namespace Terresquall {
 
                 // Format the save.
                 MemoryStream data = FormatSave();
+                OnSaveBegin?.Invoke(currentSaveFile, SaveType.sync);
 
                 // Ensures our save directory exists.
                 Directory.CreateDirectory(savePath);
@@ -292,6 +295,8 @@ namespace Terresquall {
                     data.CopyTo(stream);
                 }
 
+                // Trigger callbacks and print logs.
+                OnSaveComplete(currentSaveFile, SaveType.sync);
                 if (debug) Debug.Log($"Saved data to {path}.");
 
                 data.Dispose();
@@ -326,6 +331,7 @@ namespace Terresquall {
                 await Task.Yield();
 
                 data = FormatSave();
+                OnSaveBegin?.Invoke(currentSaveFile, SaveType.async);
                 if (data == null) return;
 
                 // Ensures our save directory exists.
@@ -338,6 +344,8 @@ namespace Terresquall {
                     await data.CopyToAsync(stream);
                 }
 
+                // Trigger callbacks and print logs.
+                OnSaveComplete(currentSaveFile, SaveType.sync);
                 if (debug) Debug.Log($"Saved (async) data to {path}.");
 
                 await Task.Run(() => data.Dispose());

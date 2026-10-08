@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: eff96fc39a4e78445a52826f4d5575c4
+guid: bbf0635c870d7c24da3a632a00182ef9
 PrefabImporter:
   externalObjects: {}
   userData: 
@@ -10,5 +10,6 @@ AssetOrigin:
   productId: 334468
   packageName: Bench Universal Save System
   packageVersion: 0.3.0
-  assetPath: Assets/Bench Universal Save System/Prefabs/Save Indicators/Default Indicator.prefab
+  assetPath: Assets/Bench Universal Save System/Prefabs/Save Points/3D/Save Point
+    - Bench Basic Wood 3D Variant.prefab
   uploadId: 997992

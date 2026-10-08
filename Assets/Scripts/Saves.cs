@@ -1,19 +1,40 @@
 using Terresquall;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Saves : PersistentObject
 {
     [SerializeField] private int levelIndex;
+    [SerializeField] private string previousLevelSaveID;
+    [SerializeField] private Button levelButton;
+
     [SerializeField] private GameObject zeroStar;
     [SerializeField] private GameObject oneStar;
     [SerializeField] private GameObject twoStars;
     [SerializeField] private GameObject threeStars;
 
-    public SaveData data;
+    public SaveData data = new SaveData();
 
     private void Awake()
     {
+        Bench.LoadGame();
+
+        bool isUnlocked = levelIndex == 1;
+
+        if (!isUnlocked)
+        {
+            SaveData previousLevel = Bench.Find(previousLevelSaveID) as SaveData;
+
+            if (previousLevel != null && previousLevel.stars > 0)
+            {
+                isUnlocked = true;
+            }
+        }
+
+        levelButton.interactable = isUnlocked;
+
         SaveData starInfo = Bench.Find(saveID) as SaveData;
+
         if(starInfo != null)
         {
             if(starInfo.stars == 1)
@@ -43,6 +64,7 @@ public class Saves : PersistentObject
     public new class SaveData : PersistentObject.SaveData
     {
         public int stars = 0;
+        public int highScore = 0;
     }
 
     public override PersistentObject.SaveData Save()

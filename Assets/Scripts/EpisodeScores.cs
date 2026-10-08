@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using Terresquall;
+using UnityEditor.Overlays;
 
 public class EpisodeScores : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class EpisodeScores : MonoBehaviour
     [SerializeField] TextMeshProUGUI totalStarText;
 
     [SerializeField] TextMeshProUGUI totalScoreText;
+
+    [SerializeField] string[] levelSaveID;
 
     [HideInInspector]
     public int levelsCount;
@@ -24,21 +28,23 @@ public class EpisodeScores : MonoBehaviour
 
     private void Start()
     {
-        levelsCount = episodeLevels.transform.childCount - 1;
+        Bench.LoadGame();
+
+        levelsCount = levelSaveID.Length;
         totalMaxStarCount = levelsCount *3;
 
-        int i = 0;
-
-        while(levelsCount != i)
+        for (int i = 0; i < levelSaveID.Length; i++)
         {
-            i++;
-            if(PlayerPrefs.HasKey(i.ToString()))
-            {
-                totalStarCount = totalStarCount + PlayerPrefs.GetInt(i.ToString());
-                totalScoreCount = totalScoreCount + PlayerPrefs.GetInt(i.ToString() + "h");
-            }
+            Saves.SaveData starInfo =
+                Bench.Find(levelSaveID[i]) as Saves.SaveData;
 
+            if (starInfo != null)
+            {
+                totalStarCount += starInfo.stars;
+                totalScoreCount += starInfo.highScore;
+            }
         }
+
         maxStarText.text = totalMaxStarCount.ToString();
         totalStarText.text = totalStarCount.ToString();
         totalScoreText.text = totalScoreCount.ToString();

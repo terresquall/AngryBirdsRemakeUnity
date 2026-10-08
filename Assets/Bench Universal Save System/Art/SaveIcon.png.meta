@@ -232,3 +232,10 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 334468
+  packageName: Bench Universal Save System
+  packageVersion: 0.3.0
+  assetPath: Assets/Bench Universal Save System/Art/SaveIcon.png
+  uploadId: 997992
