@@ -1713,9 +1713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveID: Level5
-  levelIndex: 5
-  previousLevelSaveID: Level4
-  levelButton: {fileID: 244839206}
+  prerequisite: {fileID: 1741550245}
   zeroStar: {fileID: 1414204729}
   oneStar: {fileID: 2012040080}
   twoStars: {fileID: 1444369146}
@@ -3474,9 +3472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveID: Level2
-  levelIndex: 2
-  previousLevelSaveID: Level1
-  levelButton: {fileID: 539408318}
+  prerequisite: {fileID: 1004227668}
   zeroStar: {fileID: 1813382889}
   oneStar: {fileID: 1356556161}
   twoStars: {fileID: 1325191167}
@@ -3646,9 +3642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveID: Level3
-  levelIndex: 3
-  previousLevelSaveID: Level2
-  levelButton: {fileID: 558086434}
+  prerequisite: {fileID: 539408317}
   zeroStar: {fileID: 1629536124}
   oneStar: {fileID: 1655829869}
   twoStars: {fileID: 686271332}
@@ -8209,9 +8203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveID: Level1
-  levelIndex: 1
-  previousLevelSaveID: 
-  levelButton: {fileID: 1004227665}
+  prerequisite: {fileID: 0}
   zeroStar: {fileID: 1734069055}
   oneStar: {fileID: 932908247}
   twoStars: {fileID: 636339429}
@@ -14155,9 +14147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveID: Level4
-  levelIndex: 4
-  previousLevelSaveID: Level3
-  levelButton: {fileID: 1741550246}
+  prerequisite: {fileID: 558086433}
   zeroStar: {fileID: 70991107}
   oneStar: {fileID: 569343614}
   twoStars: {fileID: 743143253}

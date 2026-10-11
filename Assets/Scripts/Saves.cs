@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class Saves : PersistentObject
 {
-    [SerializeField] private int levelIndex;
-    [SerializeField] private string previousLevelSaveID;
-    [SerializeField] private Button levelButton;
+
+    [SerializeField] Saves prerequisite;
+    private Button levelButton;
 
     [SerializeField] private GameObject zeroStar;
     [SerializeField] private GameObject oneStar;
@@ -17,13 +17,12 @@ public class Saves : PersistentObject
 
     private void Awake()
     {
-        Bench.LoadGame();
-
-        bool isUnlocked = levelIndex == 1;
+        // Check whether the button should be unlocked.
+        bool isUnlocked = !prerequisite;
 
         if (!isUnlocked)
         {
-            SaveData previousLevel = Bench.Find(previousLevelSaveID) as SaveData;
+            SaveData previousLevel = Bench.Find(prerequisite.saveID) as SaveData;
 
             if (previousLevel != null && previousLevel.stars > 0)
             {
@@ -31,6 +30,7 @@ public class Saves : PersistentObject
             }
         }
 
+        levelButton = GetComponentInChildren<Button>();
         levelButton.interactable = isUnlocked;
 
         SaveData starInfo = Bench.Find(saveID) as SaveData;

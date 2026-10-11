@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Terresquall;
 
 public class MainMenu : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class MainMenu : MonoBehaviour
 
         //startMenu = playButton.gameObject.transform.parent.gameObject;
         //episodeMenu = backButton.gameObject.transform.parent.gameObject;
-
+        Bench.LoadGame();
     }
 
     private void PlayButton()
