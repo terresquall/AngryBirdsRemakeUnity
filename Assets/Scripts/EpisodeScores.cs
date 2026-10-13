@@ -28,15 +28,13 @@ public class EpisodeScores : MonoBehaviour
 
     private void Start()
     {
-        Bench.LoadGame();
-
         levelsCount = levelSaveID.Length;
-        totalMaxStarCount = levelsCount *3;
+        totalMaxStarCount = levelsCount * 3;
 
+        // Retrieves each level's saved data and adds up the total stars earned and high scores
         for (int i = 0; i < levelSaveID.Length; i++)
         {
-            Saves.SaveData starInfo =
-                Bench.Find(levelSaveID[i]) as Saves.SaveData;
+            Saves.SaveData starInfo = Bench.Find(levelSaveID[i]) as Saves.SaveData;
 
             if (starInfo != null)
             {

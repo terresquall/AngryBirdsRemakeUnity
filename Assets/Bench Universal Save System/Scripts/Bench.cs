@@ -296,7 +296,7 @@ namespace Terresquall {
                 }
 
                 // Trigger callbacks and print logs.
-                OnSaveComplete(currentSaveFile, SaveType.sync);
+                OnSaveComplete?.Invoke(currentSaveFile, SaveType.sync);
                 if (debug) Debug.Log($"Saved data to {path}.");
 
                 data.Dispose();
@@ -345,7 +345,7 @@ namespace Terresquall {
                 }
 
                 // Trigger callbacks and print logs.
-                OnSaveComplete(currentSaveFile, SaveType.sync);
+                OnSaveComplete?.Invoke(currentSaveFile, SaveType.sync);
                 if (debug) Debug.Log($"Saved (async) data to {path}.");
 
                 await Task.Run(() => data.Dispose());

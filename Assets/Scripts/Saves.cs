@@ -35,13 +35,13 @@ public class Saves : PersistentObject
 
         SaveData starInfo = Bench.Find(saveID) as SaveData;
 
-        if(starInfo != null)
+        if (starInfo != null)
         {
-            if(starInfo.stars == 1)
+            if (starInfo.stars == 1)
             {
                 oneStar.SetActive(true);
             }
-            else if(starInfo.stars == 2)
+            else if (starInfo.stars == 2)
             {
                 twoStars.SetActive(true);
             }
@@ -59,6 +59,8 @@ public class Saves : PersistentObject
             zeroStar.SetActive(true);
         }
     }
+
+    // Saves and loads each level's stars and high score
 
     [System.Serializable]
     public new class SaveData : PersistentObject.SaveData

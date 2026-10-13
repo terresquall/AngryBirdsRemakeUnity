@@ -44,9 +44,10 @@ public class InGameMenu : MonoBehaviour
 
     private void Start()
     {
+        // Replaced PlayerPrefs with Bench to retrieve and display the saved high score, or 0 if there is no saved data
         Saves.SaveData saveData = Bench.Find(saveID) as Saves.SaveData;
 
-        if (saveData != null )
+        if (saveData != null)
         {
             highscoreText.text = saveData.highScore.ToString();
         }
@@ -77,7 +78,7 @@ public class InGameMenu : MonoBehaviour
             GameObject.Find("ambient").GetComponent<AudioSource>().Stop();
             StartCoroutine(winDelay(rand));
         }
-        else if(GameManager.CurrentGameState == GameState.Lost && onWinScreen == false && GameManager.BricksBirdsPigsStoppedMoving() && new List<GameObject>(GameObject.FindGameObjectsWithTag("Bird")).Count == GameManager.birdsNumber)
+        else if (GameManager.CurrentGameState == GameState.Lost && onWinScreen == false && GameManager.BricksBirdsPigsStoppedMoving() && new List<GameObject>(GameObject.FindGameObjectsWithTag("Bird")).Count == GameManager.birdsNumber)
         {
             GameObject.Find("ambient").GetComponent<AudioSource>().Stop();
             StartCoroutine(lostDelay());
@@ -89,9 +90,11 @@ public class InGameMenu : MonoBehaviour
         score.maxScoreUpdate((Mathf.RoundToInt(Birds.Count * 0.75f)) * 10000);
         score.scoreUpdate((new List<GameObject>(GameObject.FindGameObjectsWithTag("Bird")).Count) * 10000);
 
+        // Get previously saved level data and create new data
         Saves.SaveData starInfo = Bench.Find(saveID) as Saves.SaveData;
         Saves.SaveData newStarInfo = new Saves.SaveData();
 
+        // Replaced PlayerPrefs with Bench to calculate the score for the stars, then displays the stars and update the saved star count if the player earns more stars than before
         if ((float)score.score / (float)score.maxScore * 100f >= 80f) // 3 starts
         {
             StartCoroutine(starDelay(3));
@@ -107,7 +110,7 @@ public class InGameMenu : MonoBehaviour
                 Bench.Write(saveID, newStarInfo);
             }
         }
-        else if((float)score.score / (float)score.maxScore * 100f >= 50f) // 2 stars
+        else if ((float)score.score / (float)score.maxScore * 100f >= 50f) // 2 stars
         {
             StartCoroutine(starDelay(2));
             newStarInfo.stars = 2;
@@ -137,6 +140,7 @@ public class InGameMenu : MonoBehaviour
             }
         }
 
+        // Updates and saves the highest score using Bench instead of PlayerPrefs then uses the saved stars for the score animation
         starInfo = Bench.Find(saveID) as Saves.SaveData;
 
         if (starInfo == null)
@@ -148,18 +152,21 @@ public class InGameMenu : MonoBehaviour
         {
             starInfo.highScore = score.score;
             Bench.Write(saveID, starInfo);
-        }    
+        }
 
         Bench.SaveGameAsync();
         starInfo = Bench.Find(saveID) as Saves.SaveData;
+
+
         StartCoroutine(CountUpToTarget(scoreText, score.score, starInfo.stars));
 
     }
 
     private void highScoreShow()
     {
-        Saves.SaveData saveData = Bench.Find(saveID) as Saves.SaveData;
 
+        // Checks if the player's current score matches or beats the saved high score, then displays the high score and plays menu sound
+        Saves.SaveData saveData = Bench.Find(saveID) as Saves.SaveData;
         if (saveData != null && score.score >= saveData.highScore)
         {
             highScore.SetActive(true);
@@ -176,7 +183,7 @@ public class InGameMenu : MonoBehaviour
             scoreState.SetActive(false);
             openState.SetActive(true);
         }
-        else if(openState.active == true)
+        else if (openState.active == true)
         {
             openState.SetActive(false);
             scoreState.SetActive(true);

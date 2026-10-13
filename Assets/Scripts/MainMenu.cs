@@ -7,10 +7,10 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private AudioSource audio;
     [SerializeField] private AudioClip[] sound;
 
-    [SerializeField]  private GameObject startMenu;
-    [SerializeField]  private GameObject episodeMenu;
-    [SerializeField]  private GameObject episode1;
+    [SerializeField] private GameObject startMenu;
+    [SerializeField] private GameObject episodeMenu;
 
+    // Keeps track of the episode that the player is currently viewing, instead of only supporting episode 1
     private GameObject currentEpisode;
 
 
@@ -19,6 +19,8 @@ public class MainMenu : MonoBehaviour
 
         //startMenu = playButton.gameObject.transform.parent.gameObject;
         //episodeMenu = backButton.gameObject.transform.parent.gameObject;
+
+        // Loads previously saved game data when the main menu starts.
         Bench.LoadGame();
     }
 
@@ -45,7 +47,7 @@ public class MainMenu : MonoBehaviour
             closeWindow(episodeMenu);
             openWindow(startMenu);
         }
-        else if(currentEpisode.activeSelf)
+        else if (currentEpisode.activeSelf)
         {
             closeWindow(currentEpisode);
             openWindow(episodeMenu);
